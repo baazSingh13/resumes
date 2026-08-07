@@ -13,6 +13,12 @@ CONTACT = (
     "linkedin.com/in/harpreet-singh-b42942213/ | github.com/baazSingh13"
 )
 
+THESIS_CITATION = (
+    "Published thesis: Singh H. A robust intrusion detection system utilizing "
+    "uncertain reasoning techniques in artificial intelligence. The University "
+    "of Regina (Canada); 2024."
+)
+
 
 BASE_EXPERIENCE = [
     {
@@ -368,6 +374,7 @@ def build_one(config):
         doc,
         'Harpreet Singh et al., "An Uncertain Reasoning-Based Intrusion Detection System for DoS/DDoS Detection," SECRYPT 2024, ISBN 978-989-758-709-2, ISSN 2184-7711, pp. 771-776.',
     )
+    add_bullet(doc, THESIS_CITATION)
 
     heading(doc, "Education")
     add_bullet(doc, "PhD in Computational Behavioural Neuroscience, University of Lethbridge - In progress")
