@@ -20,10 +20,10 @@ BASE_EXPERIENCE = [
         "org": "University of Lethbridge",
         "dates": "Apr 2025 - Present",
         "bullets": [
-            "Build applied neuroengineering systems for BCI and brain-care research, including EEG/fNIRS acquisition, embedded device control, firmware, and Python analysis workflows.",
+            "Build current PhD neuroengineering research stack for EEG/fNIRS acquisition, CGX/XDF dataset creation, live BCI classifier/game control, embedded device control, and FPGA temporal QiSNN acceleration.",
             "Developed an 8-channel EEG + 8-channel fNIRS Raspberry Pi platform using ADS1299, ADS8688, DAC8565, SPI/GPIO, TDM MUX sequencing, live plotting, and CSV logging.",
-            "Created Sheeg research software that orchestrates CGX EEG, behavioural games, UDP-to-LSL event markers, LabRecorder control, XDF output, manifests, stream probes, and session summaries.",
-            "Built FPGA research pipelines for ANN, SNN, QSNN/QiSNN, QLIF, PC-DDM-SNN, and rodent-raster decision experiments using Vitis HLS, Vivado, MicroBlaze, BRAM windows, and UART diagnostics.",
+            "Built CGX/Sheeg workflows that launch CGX Acquisition and LabRecorder, record labelled visual-stimulus XDF sessions, preprocess EEG into CSV datasets, and export model artifacts for live classification.",
+            "Developed closed-loop BCI/FPGA and rodent-decision pipelines using ADS1299 frames, MicroBlaze, BRAM windows, temporal QiSNN/SNN accelerators, UDP/UART intent packets, and five-state game control.",
         ],
     },
     {
@@ -68,58 +68,58 @@ BASE_EXPERIENCE = [
 PROJECTS = {
     "fpga": [
         {
+            "name": "BCI_Game_Loop_FPGA",
+            "desc": "Designed the FPGA/electronics branch of a closed-loop BCI stack on Arty A7-100T: ADS1299 frames feed MicroBlaze input BRAM, an EEG-adapted active temporal QiSNN produces five intent scores, and Ethernet/Wi-Fi/UART/SPI transports drive a PC/phone game with an idle reject state.",
+        },
+        {
             "name": "QSNN_EarlyExit_FPGA_Research",
             "desc": "Built an Arty A7-35T QSNN MicroBlaze system with AXI4-Lite control, BRAM input/output buffers, UART diagnostics, and MNIST board tests; recorded 0.698-0.699 ms HLS latency at 100 MHz, 9.87% LUTs, 5.13% FFs, 41.0% BRAM tiles, 3.33% DSPs, zero routing errors, and positive routed timing slack.",
         },
         {
-            "name": "QLIF_QSNN_FPGA",
-            "desc": "Created PC-DDM-SNN and Quantum LIF software-to-hardware flows for MNIST/N-MNIST, including dataset-matched training, HLS weight export, Vitis HLS, Vivado, XSA/bitstream production, and 1000-sample UART test workflows.",
-        },
-        {
-            "name": "snn_qisnn_rodent_raster",
-            "desc": "Adapted temporal QiSNN/SNN FPGA pipelines for rodent neural raster windows with 2352-word input BRAM, AXI4-Lite ap_ctrl_hs, fixed-point payloads, MicroBlaze readback, and debug-visible state planning.",
+            "name": "rodent_decision_qisnn_temporal",
+            "desc": "Prepared a temporal QiSNN/SNN FPGA research pipeline for rodent decision prediction using DANDI-derived raster vectors, 12 time bins x 196 features, 2352-word Q10 input BRAM, 3-class lick labels, AXI4-Lite ap_ctrl_hs control, and debug-visible accelerator state planning.",
         },
     ],
     "neuro": [
         {
-            "name": "8eeg8fNIRS",
+            "name": "CGX_dataset_game",
+            "desc": "Built the CGX software branch for labelled EEG dataset creation and software evaluation: CGX EEG plus five-state stimulus markers are recorded to XDF, preprocessed into labelled CSV, trained into classifier artifacts, and replayed live as INTENT UDP packets to a browser game.",
+        },
+        {
+            "name": "BCT_8EEG_8FNIRS",
             "desc": "Integrated ADS1299 EEG, ADS8688 fNIRS analog acquisition, DAC8565 output control, watchdog PWM, TDM MUX sequencing, and Raspberry Pi SPI/GPIO concurrency into live acquisition scripts.",
         },
         {
-            "name": "Sheeg",
-            "desc": "Built synchronized EEG + behavioural experiment orchestration with CGX Acquisition, UDP-to-LSL marker bridge, LSL stream probing, LabRecorder remote control, XDF recording, and session metadata.",
-        },
-        {
-            "name": "snn_qisnn_rodent_raster",
-            "desc": "Prepared rodent decision decoding pipeline that converts neural population raster windows into 12 x 196 temporal features for no-lick, left-lick, and right-lick prediction experiments.",
+            "name": "BCI_Game_Loop_FPGA",
+            "desc": "Connected trained/quantized EEG intent models to an FPGA/game control contract with fixed idle, left, right, up, and down classes, confidence_q15 scoring, golden-window replay, and safety gates before enabling live commands.",
         },
     ],
     "embedded": [
         {
-            "name": "8eeg8fNIRS",
-            "desc": "Developed Raspberry Pi acquisition/control software for ADS1299, ADS8688, DAC8565, SPI, GPIO, watchdog PWM, MUX/TDM sequencing, live plotting, and CSV logging.",
+            "name": "BCT_8EEG_8FNIRS",
+            "desc": "Developed Raspberry Pi acquisition/control software for ADS1299, ADS8688, DAC8565, shared SPI0, GPIO MUX/TDM sequencing, watchdog PWM, thread-safe SPI transfers, live plotting, and CSV logging.",
+        },
+        {
+            "name": "BCI_Game_Loop_FPGA",
+            "desc": "Defined embedded packet and transport contracts for FPGA-to-game control across Ethernet, Wi-Fi, UART, and SPI, including sequence numbers, class IDs, Q15 confidence values, and optional five-score payloads.",
         },
         {
             "name": "PyBoard / STM32 MicroPython Board",
             "desc": "Designed a custom STM32F405RGT6 development board with multilayer PCB, MicroPython firmware, sensor/actuator interfaces, and power-management debugging.",
         },
-        {
-            "name": "Industrial Embedded Systems",
-            "desc": "Delivered embedded products across telecom, media, LiFi, Ethernet switching, temperature acquisition, DC power monitoring, SMPS, CAN, SPI, I2C, UART, and HTTP/LWIP interfaces.",
-        },
     ],
     "research": [
+        {
+            "name": "Current PhD BCI Research Stack",
+            "desc": "Built an end-to-end research workflow spanning CGX EEG acquisition, five-state visual-stimulus labels, LabRecorder/XDF recording, preprocessing manifests, held-session model evaluation, quantized model export, live classifier replay, and FPGA/game-loop integration.",
+        },
         {
             "name": "QSNN / SNN / ANN FPGA Research",
             "desc": "Defined hardware-aware research methodology comparing ANN, SNN, fixed-step QSNN, and adaptive early-exit QSNN on accuracy, latency, power/energy, FPGA utilization, and robustness.",
         },
         {
-            "name": "Rodent Raster Decision Pipeline",
-            "desc": "Built computational neuroscience pipeline for transforming neural population raster dynamics into temporal fixed-point features for FPGA-oriented decision prediction.",
-        },
-        {
-            "name": "SECRYPT 2024 IDS Research",
-            "desc": "Published uncertain-reasoning IDS research using Bayesian and Markov Networks for DoS/DDoS detection with Python ML, Zeek, Wireshark, and feature-engineering workflows.",
+            "name": "Rodent Decision Temporal QiSNN Pipeline",
+            "desc": "Transformed neural population raster dynamics into temporal fixed-point features for FPGA-oriented no-lick, left-lick, and right-lick decision prediction, with DANDI sample support and documented raster-to-time-series conversion.",
         },
     ],
     "security": [
@@ -143,7 +143,7 @@ RESUMES = [
     {
         "file": "ATS_Embedded_Firmware_Resume.docx",
         "title": "Embedded Firmware Engineer",
-        "summary": "Senior embedded systems and firmware engineer with 13+ years building microcontroller products, board-support software, PCB bring-up tools, acquisition systems, industrial interfaces, and embedded Linux/Raspberry Pi applications. Strong C, Embedded C, Python, STM32/AVR/PIC/ESP32, SPI, I2C, UART, CAN, Ethernet/LWIP, SMPS, hardware debugging, and sensor-acquisition background, strengthened by current neuroengineering research work.",
+        "summary": "Senior embedded systems and firmware engineer with 13+ years building microcontroller products, board-support software, PCB bring-up tools, acquisition systems, industrial interfaces, and embedded Linux/Raspberry Pi applications. Strong C, Embedded C, Python, STM32/AVR/PIC/ESP32, SPI, I2C, UART, CAN, Ethernet/LWIP, SMPS, hardware debugging, and sensor-acquisition background, strengthened by current EEG/fNIRS and closed-loop BCI research work.",
         "skills": [
             "C, Embedded C, Python, Bash, bare-metal firmware, FreeRTOS, Zephyr RTOS, Embedded Linux",
             "ARM Cortex, STM32, AVR, PIC, 8051, ESP32, Atmega328P, Atmega2560A, STM32F4",
@@ -157,7 +157,7 @@ RESUMES = [
     {
         "file": "ATS_FPGA_HLS_Resume.docx",
         "title": "FPGA / HLS / Hardware Acceleration Engineer",
-        "summary": "FPGA and embedded AI engineer focused on Vitis HLS, Vivado, MicroBlaze, Zynq, AXI4-Lite, AXI HP, BRAM data paths, fixed-point neural accelerators, and UART-visible board validation. Built research pipelines for QSNN, QiSNN, SNN, QLIF, PC-DDM-SNN, ANN baselines, N-MNIST, MNIST14, rodent-raster decision decoding, and Zynq-based LLM acceleration.",
+        "summary": "FPGA and embedded AI engineer focused on Vitis HLS, Vivado, MicroBlaze, Zynq, AXI4-Lite, AXI HP, BRAM data paths, fixed-point neural accelerators, and UART-visible board validation. Built research pipelines for QSNN, QiSNN, SNN, QLIF, PC-DDM-SNN, ANN baselines, N-MNIST, MNIST14, EEG intent decoding, rodent-raster decision decoding, and Zynq-based LLM acceleration.",
         "skills": [
             "Xilinx Vivado, Vitis HLS, HLS C/C++, MicroBlaze, Zynq Cortex-A9, AXI4-Lite, AXI HP, BRAM maps, UARTLite",
             "Arty A7-35T, Arty A7-100T, Arty Z7-20, Artix-7, Zynq-7000, XSA, bitstream, Vitis platform, board bring-up",
@@ -171,9 +171,9 @@ RESUMES = [
     {
         "file": "ATS_Neurotechnology_BCI_Resume.docx",
         "title": "Neurotechnology / BCI Engineer",
-        "summary": "Neurotechnology and BCI research engineer combining computational behavioural neuroscience, embedded systems, EEG/fNIRS acquisition, synchronized behavioural experiments, Python analysis, LSL/LabRecorder workflows, and FPGA-based neuromorphic research. Current PhD student and Research Assistant at the University of Lethbridge building practical tools for brain-care, behavioural neuroscience, and neural decision modeling.",
+        "summary": "Neurotechnology and BCI research engineer combining computational behavioural neuroscience, embedded systems, EEG/fNIRS acquisition, synchronized behavioural experiments, CGX/XDF dataset creation, Python analysis, live classifier/game loops, LSL/LabRecorder workflows, and FPGA-based neuromorphic research.",
         "skills": [
-            "EEG, fNIRS, BCI, computational behavioural neuroscience, neural data acquisition, behavioural task markers, XDF sessions",
+            "EEG, fNIRS, BCI, CGX EEG, computational behavioural neuroscience, neural data acquisition, behavioural task markers, XDF sessions",
             "ADS1299, ADS8688, DAC8565, Raspberry Pi, SPI, GPIO, TDM MUX, watchdog PWM, live plotting, CSV logging",
             "Lab Streaming Layer, LSL markers, LabRecorder, CGX EEG, UDP marker bridge, stream probing, session manifests",
             "Python, NumPy, Pandas, Matplotlib, scikit-learn, PyTorch, TensorFlow/Keras, biomedical signal analysis",
@@ -185,7 +185,7 @@ RESUMES = [
     {
         "file": "ATS_Research_Engineer_Resume.docx",
         "title": "Research Engineer / Applied Scientist",
-        "summary": "Research engineer and PhD student with 13+ years spanning embedded systems, applied AI, computational neuroscience, cybersecurity research, FPGA acceleration, and biomedical data acquisition. Experienced at turning research questions into reproducible software/hardware pipelines, validation plans, experiment artifacts, metrics, publications, and working prototypes across unfamiliar technical domains.",
+        "summary": "Research engineer and PhD student with 13+ years spanning embedded systems, applied AI, computational neuroscience, cybersecurity research, FPGA acceleration, and biomedical data acquisition. Experienced at turning research questions into reproducible software/hardware pipelines, labelled datasets, validation plans, experiment artifacts, metrics, publications, and working prototypes across unfamiliar technical domains.",
         "skills": [
             "Research engineering, experimental design, reproducible workflows, validation plans, metrics, documentation, technical writing",
             "Python, NumPy, Pandas, scikit-learn, TensorFlow, PyTorch, Matplotlib, Bayesian Networks, Markov Networks, NLP transformers",
