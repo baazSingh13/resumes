@@ -16,6 +16,7 @@ The `ats/` folder contains plain, ATS-friendly versions with no tables and
 role-specific keywords. Each resume is available as DOCX and PDF.
 
 - `ATS_Embedded_Firmware_Resume`
+- `ATS_Embedded_Hardware_Designer_Resume`
 - `ATS_FPGA_HLS_Resume`
 - `ATS_Neurotechnology_BCI_Resume`
 - `ATS_Research_Engineer_Resume`
@@ -32,6 +33,7 @@ format.
 These versions cover the main job targets:
 
 - Embedded Firmware Engineer
+- Embedded Hardware Designer
 - FPGA / HLS / Hardware Acceleration Engineer
 - Neurotechnology / BCI Engineer
 - Research Engineer / Applied Scientist

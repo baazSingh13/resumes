@@ -72,6 +72,20 @@ BASE_EXPERIENCE = [
 
 
 PROJECTS = {
+    "hardware": [
+        {
+            "name": "BCT_8EEG_8FNIRS",
+            "desc": "Designed and documented a mixed-signal EEG/fNIRS hardware stack using ADS1299 8-channel EEG acquisition, ADS8688 8-channel analog acquisition, DAC8565 output control, shared SPI0, GPIO-controlled MUX/TDM sequencing, watchdog PWM, and Raspberry Pi bench-test software.",
+        },
+        {
+            "name": "PyBoard / STM32 MicroPython Board",
+            "desc": "Designed a custom STM32F405RGT6 development board with multilayer PCB design, MicroPython firmware support, sensor/actuator interfaces, power-management debugging, firmware flashing, and board bring-up planning.",
+        },
+        {
+            "name": "Industrial Embedded Hardware",
+            "desc": "Delivered hardware for telecom, LiFi, media, Ethernet switching, temperature acquisition, DC power monitoring, automatic test equipment, and isolated 15-20 W SMPS sections with 78-81% measured efficiency.",
+        },
+    ],
     "fpga": [
         {
             "name": "BCI_Game_Loop_FPGA",
@@ -146,6 +160,20 @@ PROJECTS = {
 
 
 RESUMES = [
+    {
+        "file": "ATS_Embedded_Hardware_Designer_Resume.docx",
+        "title": "Embedded Hardware Designer",
+        "summary": "Embedded hardware designer with 13+ years across schematic design, PCB design, board bring-up, mixed-signal acquisition, SMPS/power electronics, embedded interfaces, sensor/actuator hardware, and hardware/software validation. Built telecom, media, LiFi, test-equipment, EEG/fNIRS, STM32, Raspberry Pi, and FPGA-adjacent systems using practical bench-debug workflows with oscilloscopes, logic analyzers, JTAG/SWD, SPI, I2C, UART, CAN, Ethernet, and power-management validation.",
+        "skills": [
+            "Schematic design, PCB design, multilayer boards, component selection, BOM review, board bring-up, rework/debug planning",
+            "SMPS design, isolated DC/DC sections, power sequencing, power budgeting, regulators, watchdog PWM, grounding and signal integrity awareness",
+            "Mixed-signal acquisition, ADS1299, ADS8688, DAC8565, sensor interfaces, analog sampling, MUX/TDM control, Raspberry Pi hardware validation",
+            "ARM Cortex, STM32, AVR, PIC, ESP32, MicroPython boards, JTAG, SWD, oscilloscopes, logic analyzers, hardware test scripts",
+            "SPI, I2C, UART, CAN, RS-485, Modbus, USB, Ethernet/LWIP, GPIO, interrupts, embedded C/Python hardware test automation",
+        ],
+        "experience_focus": "hardware",
+        "projects": PROJECTS["hardware"],
+    },
     {
         "file": "ATS_Embedded_Firmware_Resume.docx",
         "title": "Embedded Firmware Engineer",
@@ -320,6 +348,12 @@ def add_role(doc, role, focus):
             "Developed Raspberry Pi acquisition/control software using ADS1299, ADS8688, DAC8565, watchdog PWM, TDM MUX sequencing, threading locks, CSV logging, and hardware debug scripts.",
             "Integrated research-session software with CGX EEG, UDP-to-LSL markers, LabRecorder control, stream probing, XDF output, and session metadata.",
         ]
+    elif focus == "hardware" and role["title"].startswith("Research Assistant, Core-Hub"):
+        bullets = [
+            "Design and validate embedded neuroengineering hardware for EEG/fNIRS acquisition, mixed-signal control, Raspberry Pi SPI/GPIO interfaces, sensor inputs, output control, and bench testing.",
+            "Developed an integrated 8-channel EEG + 8-channel fNIRS acquisition platform using ADS1299, ADS8688, DAC8565, watchdog PWM, TDM MUX sequencing, shared SPI0, and GPIO control lines.",
+            "Documented hardware wiring, chip-select mapping, DRDY/RESET/START signals, MUX control lines, CSV test outputs, and safe bring-up checks for live acquisition experiments.",
+        ]
     elif focus == "fpga" and role["title"].startswith("Research Assistant, Core-Hub"):
         bullets = [
             "Build FPGA research pipelines for ANN, SNN, QSNN/QiSNN, QLIF, PC-DDM-SNN, and rodent-raster decision experiments using Vitis HLS, Vivado, MicroBlaze, BRAM windows, and UART diagnostics.",
@@ -337,6 +371,20 @@ def add_role(doc, role, focus):
             "Researched uncertain-reasoning IDS methods for DoS/DDoS detection using Bayesian Networks, Markov Networks, Zeek, Wireshark, feature engineering, and Python ML workflows.",
             "Published SECRYPT 2024 paper on uncertain-reasoning intrusion detection and validated IDS behavior through network traffic preprocessing, model tuning, and experimental evaluation.",
             "Built related ML prototypes including a Bayesian liver-disorder diagnostic model with 85% accuracy and Punjabi BERT/NLP classifiers for 100K+ news articles with 92% accuracy.",
+        ]
+    elif focus == "hardware" and role["title"] == "Independent Embedded Systems Developer":
+        bullets = [
+            "Designed a custom STM32F405RGT6 MicroPython development board, including multilayer PCB design, firmware flashing path, sensor/actuator interfaces, power management, and hardware/software debugging.",
+        ]
+    elif focus == "hardware" and role["title"] == "Senior Software Engineer":
+        bullets = [
+            "Led a 15-member team delivering embedded hardware and firmware for broadcast/media systems, including a network-controlled 10-channel video switcher and Ethernet temperature acquisition platform.",
+            "Designed schematics and PCBs, selected components, coordinated cabinet/mechanical integration, and validated control/alarm interfaces with Ethernet, HTTP/LWIP, and embedded C firmware.",
+        ]
+    elif focus == "hardware" and role["title"].startswith("Embedded Software Engineer"):
+        bullets = [
+            "Designed and brought up STM32/AVR embedded hardware for LiFi control, telecom power plants, DC interface cards, and automatic test equipment.",
+            "Designed 15-20 W isolated SMPS sections with 78-81% measured efficiency and debugged boards across CAN, SPI Flash, I2C EEPROM, Ethernet/LWIP, GUI test automation, and industrial power-monitoring interfaces.",
         ]
     for item in bullets:
         add_bullet(doc, item)
