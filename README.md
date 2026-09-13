@@ -21,6 +21,7 @@ role-specific keywords. Each resume is available as DOCX and PDF.
 - `ATS_Neurotechnology_BCI_Resume`
 - `ATS_Research_Engineer_Resume`
 - `ATS_AI_Cybersecurity_Research_Resume`
+- `ATS_Data_Engineering_Resume`
 
 ## Archive
 
@@ -38,3 +39,13 @@ These versions cover the main job targets:
 - Neurotechnology / BCI Engineer
 - Research Engineer / Applied Scientist
 - AI / Cybersecurity Researcher
+- Data Engineer / Scientific Data Pipeline Engineer
+
+## Data Engineering Resume
+
+- [Editable Word](ats/ATS_Data_Engineering_Resume.docx)
+- [PDF](ats/ATS_Data_Engineering_Resume.pdf)
+
+Focuses on Python data pipelines, EEG and sensor ingestion, synchronized event
+labels, XDF-to-CSV preprocessing, metadata, diagnostics, and reproducible ML
+workflows. Highlights CGX_dataset_game, Sheeg, and sensor acquisition projects.
